@@ -1,8 +1,13 @@
 /*
  * Stage: Development-01
  * @author: Umut Geyik, 120200145
- * @author: GÃ¶kay Tan, 122202114
- *
+ * @author: Gökay Tan, 122202114
+ * 
+ * Stage2 : Development-02
+ * @author: Batýkan Yýlmaz, 120200036
+ * @author: Leyana Jayousi, 120200153
+ * @author: Resul Erdem Arduç, 119200056
+
  */
 
 import java.awt.GridLayout;
@@ -30,9 +35,9 @@ public class LoginWindow extends JFrame implements ActionListener {
      * ! PLEASE RENAME THE OBJECTS ACCORDING TO THEIR PURPOSES !
      * ! YOU CAN ADD MORE ELEMENTS IF IT IS NECESSARY !
      */
-    private JButton btnLogin, btnExit;
-    private JLabel lblUserID, lblUserPwd;
-    private JTextField txtUID, txtUPWD;
+    private JButton btnLogin, btnExit, btnBorrowedBook;
+    private JLabel lblUserID, lblUserPwd, lblBorrowedBook;
+    private JTextField txtUID, txtUPWD, txtBorrowedBook;
 
 
     // Constructor
@@ -118,22 +123,49 @@ public class LoginWindow extends JFrame implements ActionListener {
 
         // If login button has clicked, checked given information from user whether they are correct
         // If exit button has clicked, simply close the program
+    	// If borrow button has clicked, shows the borrowed book and user
 
         if (e.getSource() == btnLogin){
-            if (txtUID.getText() == user_name && txtUPWD.getText() == user_pass){
+            if (txtUID.getText().equals(user_name) && txtUPWD.getText().equals(user_pass)){
                 JOptionPane.showMessageDialog(this, "Welcome back, " + user_name + "!");
                 this.dispose();
-                JFrame blankFrame = new JFrame("Blank Frame");
-                blankFrame.setSize(400, 400);
-                blankFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                blankFrame.setVisible(true);
+                login();
             }
-            else
+            else {
                 JOptionPane.showMessageDialog(this, "User ID or password incorrect!");
-
-        if (e.getSource() == btnExit)
+            }    
+        }
+        
+        else if (e.getSource() == btnExit) {
             System.exit(0);
         }
+        
+        else if (e.getSource() == btnBorrowedBook) {
+        	JOptionPane.showMessageDialog(this, user_name + " has borrowed " + txtBorrowedBook.getText() + " book");
+    	}
+        
+        
+    }
+    
+    public void login() {//new blank frame
+    	JFrame blankFrame = new JFrame("Blank Frame");
+    	blankFrame.setLayout(new GridLayout(3, 1));
+        
+    	blankFrame.setSize(400, 400);
+        blankFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        blankFrame.setVisible(true);
+        
+        lblBorrowedBook = new JLabel("Enter The Book:", SwingConstants.CENTER); 
+        txtBorrowedBook = new JTextField(""); 
+        txtBorrowedBook.setHorizontalAlignment(SwingConstants.CENTER);
+        btnBorrowedBook = new JButton("Borrow"); 
+        
+        blankFrame.add(lblBorrowedBook);
+        blankFrame.add(txtBorrowedBook);
+        blankFrame.add(btnBorrowedBook);
+        
+        btnBorrowedBook.addActionListener(this);
+                
     }
 
 }
