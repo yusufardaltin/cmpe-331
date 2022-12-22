@@ -1,12 +1,19 @@
 /*
  * Stage: Development-01
  * @author: Umut Geyik, 120200145
- * @author: Gökay Tan, 122202114
+ * @author: GÃ¶kay Tan, 122202114
  * 
  * Stage2 : Development-02
- * @author: Batýkan Yýlmaz, 120200036
+ * @author: BatÃ½kan YÃ½lmaz, 120200036
  * @author: Leyana Jayousi, 120200153
- * @author: Resul Erdem Arduç, 119200056
+ * @author: Resul Erdem ArduÃ§, 119200056
+ 
+ * Stage3 : Code Review
+ * @author: Beril AygÃ¼l, 119202033
+ * @author: Yusuf Arda AltÄ±n, 119202054
+
+ 
+ 
 
  */
 
